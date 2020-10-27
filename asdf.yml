@@ -1,0 +1,16 @@
+---
+
+- import_playbook: 'homebrew.yml'
+
+- name: Install asdf version manager
+  hosts: all
+
+  tasks:
+    - homebrew:
+        name: asdf
+        state: latest
+
+    - lineinfile:
+        dest: ~/.zshrc
+        create: yes
+        line: ". /usr/local/opt/asdf/asdf.sh"

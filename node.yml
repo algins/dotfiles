@@ -1,0 +1,35 @@
+---
+
+- import_playbook: 'asdf.yml'
+
+- name: Install Node.js
+  hosts: all
+
+  tasks:
+    - homebrew:
+        name: gnupg
+        state: latest
+    
+    - shell: asdf plugin list
+      register: added_plugins
+      changed_when: false
+
+    - shell: asdf plugin add nodejs
+      when: '"nodejs" not in added_plugins.stdout_lines'
+
+    - shell: asdf list nodejs
+      register: installed_versions_before
+      changed_when: false
+
+    - shell: /bin/bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+      when: installed_versions_before.stderr != ''
+
+    - shell: asdf install nodejs latest
+      when: installed_versions_before.stderr != ''
+
+    - shell: asdf list nodejs
+      register: installed_versions_after
+      changed_when: false
+
+    - shell: "asdf global nodejs {{ installed_versions_after.stdout_lines[0] }}"
+      changed_when: false

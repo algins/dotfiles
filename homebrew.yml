@@ -1,0 +1,13 @@
+---
+
+- name: Install Homebrew
+  hosts: all
+
+  tasks:
+    - shell: brew --version
+      register: brew_version
+      changed_when: false
+      ignore_errors: true
+
+    - shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      when: brew_version is failed

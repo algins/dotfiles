@@ -1,0 +1,7 @@
+{
+    "workbench.startupEditor": "none",
+    "editor.fontFamily": "Monaco, monospace",
+    "editor.fontSize": 14,
+    "editor.wordWrap": "on",
+    "phpSniffer.autoDetect": true
+}

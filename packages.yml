@@ -1,0 +1,24 @@
+---
+
+- import_playbook: 'homebrew.yml'
+
+- name: Install macOS Packages
+  hosts: all
+
+  tasks:
+    - homebrew:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - docker-compose
+        - fzf
+
+    - homebrew_cask:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - docker
+        - google-chrome
+        - iterm2
+        - vagrant
+        - virtualbox

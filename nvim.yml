@@ -1,0 +1,27 @@
+---
+
+- import_playbook: 'homebrew.yml'
+- import_playbook: 'node.yml'
+
+- name: Install Neovim
+  hosts: all
+  vars:
+    nvim_config_dir: .config/nvim
+    nvim_config_base_url: https://raw.githubusercontent.com/mokevnin/dotfiles/master/files
+
+  tasks:
+    - homebrew:
+        name: neovim
+        state: latest
+
+    - file:
+        dest: "~/{{ nvim_config_dir }}"
+        state: directory
+
+    - get_url:
+        url: "{{ nvim_config_base_url }}/vimrc"
+        dest: "~/{{ nvim_config_dir }}/init.vim"
+
+    - get_url:
+        url: "{{ nvim_config_base_url }}/coc-settings.json"
+        dest: "~/{{ nvim_config_dir }}/coc-settings.json"

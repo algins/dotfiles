@@ -1,0 +1,28 @@
+---
+
+- import_playbook: 'homebrew.yml'
+
+- name: Install Visual Studio Code
+  hosts: all
+
+  tasks:
+    - homebrew_cask:
+        name: visual-studio-code
+        state: latest
+
+    - shell: "code --list-extensions"
+      register: installed_extensions
+      changed_when: false
+
+    - shell: "code --install-extension {{ item }}"
+      loop:
+        - CoenraadS.bracket-pair-colorizer-2
+        - formulahendry.auto-rename-tag
+        - ms-azuretools.vscode-docker
+        - ms-vscode-remote.remote-containers
+        - vscode-icons-team.vscode-icons
+      when: item is not in installed_extensions.stdout_lines
+
+    - copy:
+        src: "Library/Application Support/Code/User/settings.json"
+        dest: "~/Library/Application Support/Code/User/settings.json"
