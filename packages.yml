@@ -20,5 +20,6 @@
         - docker
         - google-chrome
         - iterm2
+        - mysqlworkbench
         - vagrant
         - virtualbox
