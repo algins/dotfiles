@@ -12,6 +12,7 @@
       loop:
         - docker-compose
         - fzf
+        - htop
 
     - homebrew_cask:
         name: "{{ item }}"
