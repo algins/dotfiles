@@ -9,7 +9,7 @@
     - homebrew:
         name: gnupg
         state: latest
-    
+
     - shell: asdf plugin list
       register: added_plugins
       changed_when: false
