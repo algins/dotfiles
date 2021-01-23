@@ -10,13 +10,15 @@
         name: "{{ item }}"
         state: latest
       loop:
+        - asciinema
         - docker-compose
         - fzf
         - htop
 
-    - homebrew_cask:
+    - homebrew:
         name: "{{ item }}"
         state: latest
+        install_options: cask
       loop:
         - docker
         - google-chrome
@@ -24,3 +26,4 @@
         - mysqlworkbench
         - vagrant
         - virtualbox
+      ignore_errors: true
