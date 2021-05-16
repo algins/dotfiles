@@ -24,7 +24,12 @@
         - google-chrome
         - iterm2
         - mysqlworkbench
-        - vagrant
-        - virtualbox
         - wireshark
         - zoom
+
+    - homebrew_cask:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - vagrant
+        - virtualbox
