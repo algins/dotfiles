@@ -16,10 +16,9 @@
         - htop
         - netcat
 
-    - homebrew:
+    - homebrew_cask:
         name: "{{ item }}"
         state: latest
-        install_options: cask
       loop:
         - docker
         - google-chrome
@@ -27,4 +26,5 @@
         - mysqlworkbench
         - vagrant
         - virtualbox
-      ignore_errors: true
+        - wireshark
+        - zoom
