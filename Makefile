@@ -11,3 +11,6 @@ nvim-install:
 
 vscode-install:
 	ansible-playbook vscode.yml -i local -vv
+
+php-install:
+	ansible-playbook php.yml -i local -vv

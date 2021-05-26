@@ -11,9 +11,12 @@
         state: latest
       loop:
         - asciinema
+        - aws-iam-authenticator
         - docker-compose
         - fzf
         - htop
+        - k9s
+        - kubectl
         - netcat
 
     - homebrew_cask:
@@ -23,13 +26,7 @@
         - docker
         - google-chrome
         - iterm2
+        - lens
         - mysqlworkbench
         - wireshark
         - zoom
-
-    - homebrew_cask:
-        name: "{{ item }}"
-        state: absent
-      loop:
-        - vagrant
-        - virtualbox
