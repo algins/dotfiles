@@ -15,7 +15,6 @@
         - docker-compose
         - fzf
         - helm
-        - heroku/brew/heroku
         - htop
         - k9s
         - kubectl
