@@ -25,11 +25,17 @@
       when: installed_versions_before.stderr != ''
 
     - shell: asdf install nodejs latest
-      when: installed_versions_before.stderr != ''
 
     - shell: asdf list nodejs
       register: installed_versions_after
       changed_when: false
 
-    - shell: "asdf global nodejs {{ installed_versions_after.stdout_lines[0] }}"
+    - shell: "asdf uninstall nodejs {{ installed_versions_after.stdout_lines[0] }}"
+      when: (installed_versions_before.stderr == '') and (installed_versions_before != installed_versions_after)
+
+    - shell: asdf list nodejs
+      register: installed_versions_after_uninstall
+      changed_when: false
+
+    - shell: "asdf global nodejs {{ installed_versions_after_uninstall.stdout_lines[0] }}"
       changed_when: false
