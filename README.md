@@ -18,4 +18,6 @@ $ make dotfiles-install
 $ make nvim-install
 # install Visual Studio Code
 $ make vscode-install
+# install PHP
+$ make php-install
 ```

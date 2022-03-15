@@ -1,0 +1,56 @@
+---
+
+- import_playbook: 'asdf.yml'
+
+- name: Install PHP
+  hosts: all
+
+  tasks:
+    - homebrew:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - autoconf
+        - automake
+        - bison
+        - freetype
+        - gd
+        - gettext
+        - icu4c
+        - krb5
+        - libedit
+        - libiconv
+        - libjpeg
+        - libpng
+        - libxml2
+        - libzip
+        - pkg-config
+        - re2c
+        - zlib
+
+    - shell: asdf plugin list
+      register: added_plugins
+      changed_when: false
+
+    - shell: asdf plugin add php
+      when: '"php" not in added_plugins.stdout_lines'
+
+    - shell: asdf list php
+      register: installed_versions_before
+      changed_when: false
+
+    - shell: asdf install php latest
+
+    - shell: asdf list php
+      register: installed_versions_after
+      changed_when: false
+
+    - shell: "asdf uninstall php {{ installed_versions_after.stdout_lines[0] }}"
+      when: (installed_versions_before.stderr == '') and (installed_versions_before != installed_versions_after)
+
+    - shell: asdf list php
+      register: installed_versions_after_uninstall
+      changed_when: false
+
+    - shell: "asdf global php {{ installed_versions_after_uninstall.stdout_lines[0] }}"
+      changed_when: false

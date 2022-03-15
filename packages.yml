@@ -20,6 +20,7 @@
         - k9s
         - kubectl
         - netcat
+        - postgresql
 
     - homebrew_cask:
         name: "{{ item }}"
