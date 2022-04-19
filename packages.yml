@@ -19,6 +19,7 @@
         - htop
         - k9s
         - kubectl
+        - mit-scheme
         - netcat
         - postgresql
 
