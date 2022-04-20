@@ -19,6 +19,7 @@
         - CoenraadS.bracket-pair-colorizer-2
         - editorconfig.editorconfig
         - formulahendry.auto-rename-tag
+        - karyfoundation.racket
         - ms-azuretools.vscode-docker
         - ms-vscode-remote.remote-containers
         - redhat.vscode-xml
