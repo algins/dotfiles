@@ -16,7 +16,6 @@
 
     - shell: "code --install-extension {{ item }}"
       loop:
-        - CoenraadS.bracket-pair-colorizer-2
         - editorconfig.editorconfig
         - formulahendry.auto-rename-tag
         - karyfoundation.racket

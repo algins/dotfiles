@@ -19,8 +19,8 @@
         - htop
         - k9s
         - kubectl
-        - minimal-racket
         - netcat
+        - openjdk
         - postgresql
 
     - homebrew_cask:
@@ -33,5 +33,6 @@
         - lens
         - microsoft-remote-desktop
         - mysqlworkbench
+        - racket
         - wireshark
         - zoom
