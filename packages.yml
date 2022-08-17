@@ -23,6 +23,7 @@
         - netcat
         - openjdk
         - postgresql
+        - redis
 
     - homebrew_cask:
         name: "{{ item }}"
