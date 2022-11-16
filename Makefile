@@ -14,3 +14,6 @@ vscode-install:
 
 php-install:
 	ansible-playbook php.yml -i local -vv
+
+ruby-install:
+	ansible-playbook ruby.yml -i local -vv

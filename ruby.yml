@@ -1,0 +1,34 @@
+---
+
+- import_playbook: 'asdf.yml'
+
+- name: Install Ruby
+  hosts: all
+
+  tasks:
+    - shell: asdf plugin list
+      register: added_plugins
+      changed_when: false
+
+    - shell: asdf plugin add ruby
+      when: '"ruby" not in added_plugins.stdout_lines'
+
+    - shell: asdf list ruby
+      register: installed_versions_before
+      changed_when: false
+
+    - shell: asdf install ruby latest
+
+    - shell: asdf list ruby
+      register: installed_versions_after
+      changed_when: false
+
+    - shell: "asdf uninstall ruby {{ installed_versions_after.stdout_lines[0] }}"
+      when: (installed_versions_before.stderr == '') and (installed_versions_before.stdout != installed_versions_after.stdout)
+
+    - shell: asdf list ruby
+      register: installed_versions_after_uninstall
+      changed_when: false
+
+    - shell: "asdf global ruby {{ installed_versions_after_uninstall.stdout_lines[0] }}"
+      changed_when: false

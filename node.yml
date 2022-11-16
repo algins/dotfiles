@@ -31,7 +31,7 @@
       changed_when: false
 
     - shell: "asdf uninstall nodejs {{ installed_versions_after.stdout_lines[0] }}"
-      when: (installed_versions_before.stderr == '') and (installed_versions_before != installed_versions_after)
+      when: (installed_versions_before.stderr == '') and (installed_versions_before.stdout != installed_versions_after.stdout)
 
     - shell: asdf list nodejs
       register: installed_versions_after_uninstall
