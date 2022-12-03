@@ -41,3 +41,5 @@
 
     - shell: "asdf global nodejs {{ installed_versions_after_uninstall.stdout_lines[0] }}"
       changed_when: false
+
+    - shell: npm install -g @hexlet/cli
