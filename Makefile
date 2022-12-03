@@ -1,4 +1,4 @@
-all: packages-install dotfiles-install nvim-install vscode-install
+all: packages-install dotfiles-install nvim-install vscode-install php-install ruby-install node-install
 
 packages-install:
 	ansible-playbook packages.yml -i local -vv
@@ -17,3 +17,6 @@ php-install:
 
 ruby-install:
 	ansible-playbook ruby.yml -i local -vv
+
+node-install:
+	ansible-playbook node.yml -i local -vv

@@ -17,6 +17,8 @@
     - shell: asdf plugin add nodejs
       when: '"nodejs" not in added_plugins.stdout_lines'
 
+    - shell: asdf plugin update nodejs
+
     - shell: asdf list nodejs
       register: installed_versions_before
       changed_when: false
