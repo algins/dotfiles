@@ -14,7 +14,6 @@
         - aws-iam-authenticator
         - docker-compose
         - fzf
-        - graphviz
         - helm
         - heroku
         - htop
