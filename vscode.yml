@@ -24,6 +24,7 @@
         - ms-vscode-remote.remote-containers
         - redhat.vscode-xml
         - vscode-icons-team.vscode-icons
+        - vscode.makefile-tools
       when: item is not in installed_extensions.stdout_lines
 
     - copy:
