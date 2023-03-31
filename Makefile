@@ -1,4 +1,4 @@
-all: packages-install dotfiles-install nvim-install vscode-install php-install ruby-install node-install
+install: packages-install dotfiles-install nvim-install vscode-install php-install ruby-install node-install
 
 packages-install:
 	ansible-playbook packages.yml -i local -vv

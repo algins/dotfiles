@@ -1,23 +1,28 @@
-### Requirements
+# dotfiles
+My personal macOS dotfiles
 
+### Requirements:
 * macOS
 * Git
 * Make
 * Ansible
 
-### Setup
-
+### Full setup:
 ```sh
-$ git clone git@github.com:algins/dotfiles.git ~/dotfiles 
+$ git clone https://github.com/algins/dotfiles.git
 $ cd dotfiles
-# install macOS packages
-$ make packages-install
-# install dotfiles
-$ make dotfiles-install
-# install Neovim
-$ make nvim-install
-# install Visual Studio Code
-$ make vscode-install
-# install PHP
-$ make php-install
+$ make install
+```
+
+### Partial setup:
+```sh
+$ git clone https://github.com/algins/dotfiles.git
+$ cd dotfiles
+$ make packages-install # macOS packages
+$ make dotfiles-install # dotfiles
+$ make nvim-install # Neovim
+$ make vscode-install # Visual Studio Code
+$ make php-install # PHP
+$ make ruby-install # Ruby
+$ make node-install # Node.js
 ```
