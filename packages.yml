@@ -35,6 +35,7 @@
         - lens
         - microsoft-remote-desktop
         - mysqlworkbench
+        - postman
         - racket
         - wireshark
         - zoom
