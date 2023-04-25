@@ -26,6 +26,7 @@
         - sianglim.slim
         - vscode-icons-team.vscode-icons
         - vscode.makefile-tools
+        - vue.volar
       when: item is not in installed_extensions.stdout_lines
 
     - copy:
